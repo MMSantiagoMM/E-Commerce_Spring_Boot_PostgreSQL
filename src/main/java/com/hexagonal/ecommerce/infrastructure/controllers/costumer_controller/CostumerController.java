@@ -1,8 +1,8 @@
-package com.hexagonal.ecommerce.infrastructure.controllers;
+package com.hexagonal.ecommerce.infrastructure.controllers.costumer_controller;
 
 
 import com.hexagonal.ecommerce.application.dto.CostumerDTO;
-import com.hexagonal.ecommerce.application.service.CostumerService;
+import com.hexagonal.ecommerce.application.service.customer_service.CostumerService;
 import com.hexagonal.ecommerce.domain.models.Costumer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

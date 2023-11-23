@@ -1,4 +1,4 @@
-package com.hexagonal.ecommerce.application.service;
+package com.hexagonal.ecommerce.application.service.customer_service;
 
 import com.hexagonal.ecommerce.application.dto.CostumerDTO;
 import com.hexagonal.ecommerce.domain.models.Costumer;

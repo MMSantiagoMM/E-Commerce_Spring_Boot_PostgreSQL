@@ -1,4 +1,4 @@
-package com.hexagonal.ecommerce.infrastructure.controllers;
+package com.hexagonal.ecommerce.infrastructure.controllers.costumer_controller;
 
 import com.hexagonal.ecommerce.application.dto.CostumerDTO;
 import com.hexagonal.ecommerce.domain.models.Costumer;

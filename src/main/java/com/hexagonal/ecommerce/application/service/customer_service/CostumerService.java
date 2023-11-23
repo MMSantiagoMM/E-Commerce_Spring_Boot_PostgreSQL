@@ -1,9 +1,9 @@
-package com.hexagonal.ecommerce.application.service;
+package com.hexagonal.ecommerce.application.service.customer_service;
 
 import com.hexagonal.ecommerce.application.dto.CostumerDTO;
 import com.hexagonal.ecommerce.application.mapper.CostumerMapper;
 import com.hexagonal.ecommerce.domain.models.Costumer;
-import com.hexagonal.ecommerce.infrastructure.adapters.CostumerRepository;
+import com.hexagonal.ecommerce.infrastructure.adapters.costumer_repository.CostumerRepositoryDB;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +12,10 @@ import java.util.Optional;
 @Service
 public class CostumerService implements ICostumerService {
 
-    private final CostumerRepository repository;
+    private final CostumerRepositoryDB repository;
     private final CostumerMapper mapper;
 
-    public CostumerService(CostumerRepository repository, CostumerMapper mapper) {
+    public CostumerService(CostumerRepositoryDB repository, CostumerMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }

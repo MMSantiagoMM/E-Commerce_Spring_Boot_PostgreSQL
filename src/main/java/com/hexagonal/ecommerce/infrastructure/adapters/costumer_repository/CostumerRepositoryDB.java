@@ -1,6 +1,7 @@
-package com.hexagonal.ecommerce.infrastructure.adapters;
+package com.hexagonal.ecommerce.infrastructure.adapters.costumer_repository;
 
 import com.hexagonal.ecommerce.domain.models.Costumer;
+import com.hexagonal.ecommerce.domain.ports.CostumerRepository;
 import com.hexagonal.ecommerce.infrastructure.exceptions.CostumerNotFoundException;
 import com.hexagonal.ecommerce.infrastructure.mapper.ICostumerMapper;
 import org.springframework.stereotype.Repository;
@@ -9,12 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class CostumerRepository implements com.hexagonal.ecommerce.domain.ports.CostumerRepository {
+public class CostumerRepositoryDB implements CostumerRepository {
 
-    private final ICostumerRepository repositoryDB;
+    private final ICostumerRepositoryDB repositoryDB;
     private final ICostumerMapper mapper;
 
-    public CostumerRepository(ICostumerRepository repositoryDB, ICostumerMapper mapper) {
+    public CostumerRepositoryDB(ICostumerRepositoryDB repositoryDB, ICostumerMapper mapper) {
         this.repositoryDB = repositoryDB;
         this.mapper = mapper;
     }
