@@ -1,26 +1,35 @@
-package com.hexagonal.ecommerce.domain.models;
+package com.hexagonal.ecommerce.infrastructure.entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
+import com.hexagonal.ecommerce.domain.models.Product;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class Order {
+@Entity
+@Table(name = "orders")
+public class OrderEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Costumer costumer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "costumer_fk")
+    private CostumerEntity costumer;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "products_id")
     private List<Product> products;
+
     private Double totalPrice;
     private LocalDate dateBuy;
 
-
-
-    public Order() {
+    public OrderEntity() {
     }
 
-    public Order(Long id, Costumer costumer, List<Product> products, Double totalPrice, LocalDate dateBuy) {
+    public OrderEntity(Long id, CostumerEntity costumer, List<Product> products, Double totalPrice, LocalDate dateBuy) {
         this.id = id;
         this.costumer = costumer;
         this.products = products;
@@ -36,11 +45,11 @@ public class Order {
         this.id = id;
     }
 
-    public Costumer getCostumer() {
+    public CostumerEntity getCostumer() {
         return costumer;
     }
 
-    public void setCostumer(Costumer costumer) {
+    public void setCostumer(CostumerEntity costumer) {
         this.costumer = costumer;
     }
 
