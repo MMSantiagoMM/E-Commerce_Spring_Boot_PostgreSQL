@@ -1,11 +1,11 @@
 package com.hexagonal.ecommerce.infrastructure.entities;
 
 
+import com.hexagonal.ecommerce.domain.models.Costumer;
 import com.hexagonal.ecommerce.domain.models.Product;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -21,7 +21,7 @@ public class OrderEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "products_id")
-    private List<Product> products;
+    private ProductEntity products;
 
     private Double totalPrice;
     private LocalDate dateBuy;
@@ -29,7 +29,7 @@ public class OrderEntity {
     public OrderEntity() {
     }
 
-    public OrderEntity(Long id, CostumerEntity costumer, List<Product> products, Double totalPrice, LocalDate dateBuy) {
+    public OrderEntity(Long id, CostumerEntity costumer, ProductEntity products, Double totalPrice, LocalDate dateBuy) {
         this.id = id;
         this.costumer = costumer;
         this.products = products;
@@ -53,11 +53,11 @@ public class OrderEntity {
         this.costumer = costumer;
     }
 
-    public List<Product> getProducts() {
+    public ProductEntity getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(ProductEntity products) {
         this.products = products;
     }
 

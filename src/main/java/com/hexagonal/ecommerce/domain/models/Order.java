@@ -1,9 +1,4 @@
 package com.hexagonal.ecommerce.domain.models;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,7 +6,7 @@ public class Order {
 
     private Long id;
     private Costumer costumer;
-    private List<Product> products;
+    private Product products;
     private Double totalPrice;
     private LocalDate dateBuy;
 
@@ -20,7 +15,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, Costumer costumer, List<Product> products, Double totalPrice, LocalDate dateBuy) {
+    public Order(Long id, Costumer costumer, Product products, Double totalPrice, LocalDate dateBuy) {
         this.id = id;
         this.costumer = costumer;
         this.products = products;
@@ -44,11 +39,11 @@ public class Order {
         this.costumer = costumer;
     }
 
-    public List<Product> getProducts() {
+    public Product getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(Product products) {
         this.products = products;
     }
 
